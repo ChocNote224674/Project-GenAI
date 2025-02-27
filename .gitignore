@@ -1,0 +1,15 @@
+# Ignorer les fichiers d'environnement
+.env
+.env.local
+.env.production
+.env.development
+
+# Ignorer les dossiers générés automatiquement
+node_modules/
+vendor/
+# Ignorer les fichiers compilés Python
+__pycache__/
+*.pyc
+*.pyo
+# Ignorer l'environnement virtuel
+chatbot_env/

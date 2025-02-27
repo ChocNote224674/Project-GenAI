@@ -39,7 +39,7 @@ def answer(request: QueryRequest):
     query_embedding = compute_embedding(request.question)
     best_match = find_best_match(request.question, query_embedding)
 
-    if not best_match:
+    if best_match is None or best_match.get("answer") is None:
         # Call the LLM to generate a response instead
         llm_response = generate_ai_response(request.question,"AI generation", request.language)
         response_time = time.time() - start_time

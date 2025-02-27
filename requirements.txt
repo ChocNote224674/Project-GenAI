@@ -33,5 +33,7 @@ transformers
 autopep8
 flake8
 pylint
-SpeechRecognition 
+Speechrecognition 
 pyttsx3
+pyaudio
+

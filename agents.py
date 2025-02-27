@@ -8,6 +8,9 @@ from sentence_transformers import SentenceTransformer
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from config import API_KEY
+import speech_recognition as sr
+import time
+import streamlit as st
 
 # Chargement du modèle d'embedding
 MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"
@@ -124,3 +127,10 @@ def create_mcq(question, correct_answer, focus_area):
         "options": options,
         "correct_answer": reformulated_correct_answer
     }
+
+
+
+
+
+
+

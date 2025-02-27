@@ -13,3 +13,5 @@ REGION = os.getenv("REGION")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 API_KEY = os.getenv("GOOGLE_API_KEY")
 TABLE_NAME = os.getenv("TABLE_NAME")
+
+

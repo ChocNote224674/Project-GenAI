@@ -41,7 +41,7 @@ def answer(request: QueryRequest):
 
     if not best_match:
         # Call the LLM to generate a response instead
-        llm_response = generate_ai_response(request.questionn,"AI generation", request.language)
+        llm_response = generate_ai_response(request.question,"AI generation", request.language)
         response_time = time.time() - start_time
         print(f"Response time for answer (no match found): {response_time:.4f} seconds")
         

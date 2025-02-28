@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+*.git
+*.env
+*.log
+# Ignore Python bytecode files
+__pycache__
+*.pyc
+*.pyo
+
+.gitignore
+
+
+

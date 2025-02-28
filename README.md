@@ -25,7 +25,7 @@ Project-GenAI/
 │── try.ipynb                   # Jupyter notebook for chatbot testing
 │── utils.py                     # Utility functions
 └── README.md                   # Project documentation
-
+```
 
 ## 🎯 Features
 

@@ -14,8 +14,11 @@ from utils import jaccard_similarity  # Imports internes en dernier
 from database import get_all_embeddings
 
 
-def find_best_match(query_text: str, query_embedding: List[float]) -> Optional[dict]:
-    """Trouve la meilleure correspondance pour une requête donnée en utilisant plusieurs métriques de similarité."""
+def find_best_match(
+        query_text: str,
+        query_embedding: List[float]) -> Optional[dict]:
+    """Trouve la meilleure correspondance pour une requête donnée
+      en utilisant plusieurs métriques de similarité."""
 
     rows = get_all_embeddings()
     if not rows:

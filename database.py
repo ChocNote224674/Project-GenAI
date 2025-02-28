@@ -29,7 +29,10 @@ def connect_db():
             port=DB_PORT
         )
     except psycopg2.Error as e:
-        raise HTTPException(status_code=500, detail=f"DB connection error: {str(e)}") from e
+        raise HTTPException(
+            status_code=500,
+            detail=f"DB connection error: {
+                str(e)}") from e
 
 
 @lru_cache(maxsize=1000)
@@ -54,7 +57,7 @@ def get_all_embeddings() -> List[Tuple[str, str, str, List[float]]]:
                 cleaned_rows.append((row[0], row[1], row[2], embedding))
             except json.JSONDecodeError:
                 print(f"Erreur de décodage JSON pour l'entrée : {row[0]}")
-        
+
         return cleaned_rows
     finally:
         conn.close()

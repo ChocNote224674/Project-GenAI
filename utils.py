@@ -18,18 +18,32 @@ def get_random_questions(n: int):
     """Récupère n questions aléatoires depuis la base de données."""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute(f"SELECT question, answer FROM {TABLE_NAME} ORDER BY RANDOM() LIMIT %s", (n,))
+    cursor.execute(
+        f"SELECT question, answer FROM {TABLE_NAME} ORDER BY RANDOM() LIMIT %s", (n,))
     data = cursor.fetchall()
     cursor.close()
     conn.close()
     return data
 
 
-def get_random_qcm(n: int):
-    """Récupère n questions à choix multiples aléatoires depuis la base de données."""
+def get_random_qcm(n: int, focus_area: str = None):
+    """Récupère n questions à choix multiples aléatoires, filtrées par focus_area si fourni."""
     conn = connect_db()
     cursor = conn.cursor()
-    cursor.execute(f"SELECT question, answer, focus_area FROM {TABLE_NAME} ORDER BY RANDOM() LIMIT %s", (n,))
+
+    if focus_area:
+        cursor.execute(
+            f"""SELECT question, answer, focus_area
+            FROM {TABLE_NAME}
+            WHERE focus_area = %s ORDER BY RANDOM() LIMIT %s""",
+            (focus_area, n)
+        )
+    else:
+        cursor.execute(
+            f"SELECT question, answer, focus_area FROM {TABLE_NAME} ORDER BY RANDOM() LIMIT %s",
+            (n,)
+        )
+
     data = cursor.fetchall()
     cursor.close()
     conn.close()
@@ -63,7 +77,8 @@ def assess_response_metrics(
     meteor = meteor_score([reference_answer], generated_response)
 
     # Correction du problème d'affectation avec bert_score
-    _, _, f1_score = bert_score([generated_response], [reference_answer], lang="en")
+    _, _, f1_score = bert_score(
+        [generated_response], [reference_answer], lang="en")
 
     return {
         "cosine_similarity": {k: round(v, 4) for k, v in cosine_scores.items()},

@@ -10,20 +10,22 @@ Additionally, the chatbot supports **speech recognition**, allowing users to inp
 
 ```plaintext
 Project-GenAI/
-│── agents.py                  # Manages chatbot agents
+│── tools/
+│ │── utils.py                     # Utility functions
+│ │── retrieve.py                 # Search engine for medical data retrieval
+│ │── config.py                   # API key configurations
+│ │── agents.py                  # Manages chatbot agents
+│── database_init/
+│ │── database.py                 # Cloud SQL database management
+│ │── generate_embeddings.py      # Embedding generation for document retrieval
+│ │── medquad.csv                 # Medical dataset in CSV format
+│ │── medquad_utf8.csv            # UTF-8 version of the medical dataset
+│── eval/
+│ │── eval.py                     # Model performance evaluation
+│ │── feedback.csv                # User feedback data
 │── api.py                     # Streamlit API for chatbot access
 │── app.py                     # Main entry point of the application
-│── config.py                   # API key configurations
-│── database.py                 # Cloud SQL database management
-│── eval.py                     # Model performance evaluation
-│── feedback.csv                # User feedback data
-│── generate_embeddings.py      # Embedding generation for document retrieval
-│── medquad.csv                 # Medical dataset in CSV format
-│── medquad_utf8.csv            # UTF-8 version of the medical dataset
 │── requirements.txt            # Project dependencies
-│── retrieve.py                 # Search engine for medical data retrieval
-│── try.ipynb                   # Jupyter notebook for chatbot testing
-│── utils.py                     # Utility functions
 └── README.md                   # Project documentation
 ```
 

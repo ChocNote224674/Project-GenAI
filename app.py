@@ -14,12 +14,12 @@ import speech_recognition as sr
 import matplotlib.pyplot as plt
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
-from utils import is_feedback_file_empty
+from tools.utils import is_feedback_file_empty
 
 # ---------------- CONFIGURATION ----------------
 API_ANSWER_URL = "http://127.0.0.1:8000/answer"
 API_QCM_URL = "http://127.0.0.1:8000/qcm"
-GENERAL_FEEDBACK_FILE = "feedback.csv"
+GENERAL_FEEDBACK_FILE = "database_init/feedback.csv"
 
 
 def listen_and_transcribe():

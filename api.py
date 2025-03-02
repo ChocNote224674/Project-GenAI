@@ -7,11 +7,11 @@ import time
 import logging
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from agents import compute_embedding, generate_ai_response, create_mcq
-from retrieve import find_best_match
-from utils import get_random_qcm
-from database import connect_db
-from config import TABLE_NAME
+from tools.agents import compute_embedding, generate_ai_response, create_mcq
+from tools.retrieve import find_best_match
+from tools.utils import get_random_qcm
+from database_init.database import connect_db
+from tools.config import TABLE_NAME
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
